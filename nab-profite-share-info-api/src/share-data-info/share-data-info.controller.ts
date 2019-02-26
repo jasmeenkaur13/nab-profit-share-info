@@ -80,7 +80,7 @@ export class ShareInfoDataController {
         for (const sharedDataListForADateAndCurrency of shareDataList) {
             const currencyDataAnalysis = ShareInfoDataController.getCurrencyDataAnalysisforACurrencyAndDate(sharedDataListForADateAndCurrency.quotes);
             currencyDataAnalysis.currency = sharedDataListForADateAndCurrency.currency;
-            currencyDataAnalysis.date = sharedDataListForADateAndCurrency.date;
+            currencyDataAnalysis.date = Utilities.getDateInFormat(sharedDataListForADateAndCurrency.date);
             currencyDataAnalysisRecord.push(currencyDataAnalysis);
         }
         return currencyDataAnalysisRecord;

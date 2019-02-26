@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CurrencyDataAnalysisService } from '../services/currency-analysis.service';
 import { Observable } from 'rxjs';
+import { CurrencyDataAnalysis } from '../models/currency-data-analysis.model';
 
 /**
  * Class to interact with the component <currency-information> used anywhere in the application
@@ -11,7 +12,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  public currencyDataAnaysisList: Observable<Object> ;
+  public currencyDataAnaysisList: Observable<CurrencyDataAnalysis[]> ;
   public currency: string ='';
   public date: string ='';
 
@@ -25,6 +26,9 @@ export class AppComponent {
     this.currencyDataAnaysisList = this.currencyDataAnalysisService.getcurrencyAnalysiData(this.currency, this.date);
   }
 
+  showNorecordfound(){
+    return this.currencyDataAnaysisList && this.currencyDataAnaysisList;
+  }
   /**
    * set the variable so that value from UI can be maintained
    * @param value value changed on UI
