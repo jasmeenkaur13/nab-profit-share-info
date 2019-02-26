@@ -26,9 +26,6 @@ export class AppComponent {
     this.currencyDataAnaysisList = this.currencyDataAnalysisService.getcurrencyAnalysiData(this.currency, this.date);
   }
 
-  showNorecordfound(){
-    return this.currencyDataAnaysisList && this.currencyDataAnaysisList;
-  }
   /**
    * set the variable so that value from UI can be maintained
    * @param value value changed on UI

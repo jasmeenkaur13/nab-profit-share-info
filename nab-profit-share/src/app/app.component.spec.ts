@@ -3,7 +3,10 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CurrencyDataAnalysisService } from '../services/currency-analysis.service';
 
-class MockUserService {
+/**
+ * Mock the service
+ */
+class MockCurrencyDataAnalysisService {
   getcurrencyAnalysiData() {
     return 'test text';
   } 
@@ -16,7 +19,7 @@ describe('AppComponent', () => {
         AppComponent
       ],
       providers: [
-        { provide: CurrencyDataAnalysisService, useClass: MockUserService }
+        { provide: CurrencyDataAnalysisService, useClass: MockCurrencyDataAnalysisService }
       ],
       imports: [
         HttpClientModule

@@ -5,6 +5,7 @@ import {
 } from '@angular/common/http/testing';
 import { CurrencyDataAnalysisService } from './currency-analysis.service';
 import { AppConfig } from '../app-config';
+import { CurrencyDataAnalysis } from '../models/currency-data-analysis.model';
 
 describe('DataService', () => {
     let injector;
@@ -25,10 +26,10 @@ describe('DataService', () => {
     }));
 
     it('should return the list', () => {
-        const dummyList = 'hi';
+        const dummyList: CurrencyDataAnalysis[] = [];
 
-        service.getcurrencyAnalysiData('', '').subscribe(users => {
-            expect(users).toEqual(dummyList);
+        service.getcurrencyAnalysiData('', '').subscribe(list => {
+            expect(list).toEqual(dummyList);
         });
 
         const req = httpMock.expectOne(AppConfig.baseUrlShareData + AppConfig.baseUrlShareDataCurrencyPart + AppConfig.baseUrlShareDataDatePart);
@@ -37,12 +38,12 @@ describe('DataService', () => {
     });
 
     it('should return the list with correct url', () => {
-        const dummyList = 'hi';
+        const dummyList: CurrencyDataAnalysis[] = [];;
         const currency = 'BTC';
         const date = '20180708';
 
-        service.getcurrencyAnalysiData(currency, date).subscribe(users => {
-            expect(users).toEqual(dummyList);
+        service.getcurrencyAnalysiData(currency, date).subscribe(list => {
+            expect(list).toEqual(dummyList);
         });
 
         const req = httpMock.expectOne(AppConfig.baseUrlShareData + AppConfig.baseUrlShareDataCurrencyPart + currency + AppConfig.baseUrlShareDataDatePart + date);
