@@ -1,0 +1,44 @@
+<!--The content below is to render the page for currency data analysis.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <div>
+    <div class="currency-content">
+      <div class="input-box">
+        <label id="currencyTitle">Currency</label>
+        <input #currency class="input-control" type="text" (change)="updateCurrency(currency.value)">
+      </div>
+      <div class="input-box">
+        <label id="dateTitle" for="date">Date</label>
+        <input #date class="input-control" type="text" (change)="updateDate(date.value)">y
+      </div>
+      <button (click)="getCurrencyAnalysis()">Fetch</button>
+    </div>
+    <div class="data-analysis-content">
+      <table *ngFor="let currencyData of currencyDataAnaysisList | async ">
+        <tr>
+          <td colspan="2">{{currencyData.date}}</td>
+        </tr>
+        <tr>
+          <th colspan="2" class="currency-box">{{currencyData.currency}}</th>
+        </tr>
+        <tr>
+          <th>Buy</th>
+          <th>Sell</th>
+        </tr>
+        <tr>
+          <td>{{currencyData.buyPrice}}</td>
+          <td>{{currencyData.sellPrice}}</td>
+        </tr>
+        <tr>
+          <td>{{currencyData.buyTime}}</td>
+          <td>{{currencyData.sellTime}}</td>
+        </tr>
+        <tr>
+          <td colspan="2">Profit:{{currencyData.profit}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

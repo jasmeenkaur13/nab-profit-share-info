@@ -1,0 +1,38 @@
+h1 {
+  color: #369;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 250%;
+}
+
+table {
+  color: black;
+  border-collapse: collapse;
+  margin: 12px;
+  width: 150px;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+.currency-content {
+  float: left;
+}
+
+.input-box{
+  display: inline;
+}
+
+.input-control{
+  margin: 12px;
+}
+
+.data-analysis-content{
+  display: flex;
+  margin-top: 50px;
+  position: fixed;
+}
+
+.currency-box{
+  background:#ccc
+}
