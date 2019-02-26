@@ -26,4 +26,4 @@ GET: http://localhost:3000/share-data?currency=LTC&date= - to get the data for a
 - e2e's can be written to enhance the productivity of the application.
 - Implement Logging.
 - Enhance the look and feel of front end.
-- Implment validations for front end and back end.
+- Implement validations for front end and back end.
