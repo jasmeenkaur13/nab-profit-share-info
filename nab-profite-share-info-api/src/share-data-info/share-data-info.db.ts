@@ -3,7 +3,7 @@ import { ShareData } from '../entities/share-data.entity';
 import { AppConfig } from '../app-config';
 
 export class ShareDataInfoDb {
-    private static readonly database = new DateBaseConnection(AppConfig.databaseURL, AppConfig.databaseName);
+    public static readonly database = new DateBaseConnection(AppConfig.databaseURL, AppConfig.databaseName);
 
     /**
      * Method to get the filtered data according to the parameters passed.
@@ -13,26 +13,6 @@ export class ShareDataInfoDb {
         try {
             const db = await ShareDataInfoDb.database.start();
             let list: any = await db.collection(AppConfig.shareDataInfoCollectionName).find(requestParameters);
-            let shareDataList: ShareData[] = [];
-            await list.forEach(function (doc: any) {
-                shareDataList.push(ShareData.ConvertToModel(doc));
-            });
-            ShareDataInfoDb.database.stop();
-            return shareDataList;
-        }
-        catch (e) {
-            ShareDataInfoDb.database.stop();
-            throw e;
-        }
-    }
-
-    /**
-     * Method to get the all the data.
-     */
-    public static async getData(): Promise<ShareData[]> {
-        try {
-            const db = await ShareDataInfoDb.database.start();
-            let list: any = await db.collection(AppConfig.shareDataInfoCollectionName).find();
             let shareDataList: ShareData[] = [];
             await list.forEach(function (doc: any) {
                 shareDataList.push(ShareData.ConvertToModel(doc));

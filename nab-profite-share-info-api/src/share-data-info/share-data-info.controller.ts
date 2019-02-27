@@ -30,7 +30,7 @@ export class ShareInfoDataController {
         for (const shareDataSorted of shareDataListSortedPrice) {
             const shareDataListWithTiminigsLess = ShareInfoDataController.getFilteredListWithLessTimeThanPassed(shareDataListOfACurrencyOnADate,
                 shareDataSorted.time);
-            if (shareDataListWithTiminigsLess.length > 1) {
+            if (shareDataListWithTiminigsLess.length > 0) {
                 const shareDataListSortPrice = Utilities.sortByAscending(shareDataListWithTiminigsLess, 'price');
                 shareDataWithSellPrice = shareDataSorted;
                 shareDataWithBuyPrice = shareDataListSortPrice[0];
@@ -121,10 +121,9 @@ export class ShareInfoDataController {
             const action = ShareInfoDataController.getActionDetails(requestParameters);
             const requestParametersAsPerAction = ShareInfoDataController.getRequestParameter(action, requestParameters);
             currencyDataAnalysisRecord = await ShareInfoDataController.getCurrencyDataAnalysis(requestParametersAsPerAction);
-            res.status(200).send(currencyDataAnalysisRecord);
+            res.status(200).json(currencyDataAnalysisRecord);
     }
     catch(error) {
-        console.log(error);
         res.status(500).send(error);
     }
 }

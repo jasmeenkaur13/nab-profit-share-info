@@ -1,7 +1,5 @@
 import { AppConfig } from '../app-config';
 var format = require('moment');
-
-
 var convertTime = require('convert-time');
 
 export class Utilities {
@@ -12,7 +10,11 @@ export class Utilities {
      */
     public static sortByDescending(list: any, key: any) {
         return list.sort((data1: any, data2: any) => {
-            return data2[key] - data1[key];
+            if (data1[key] < data2[key])
+                return 1;
+            if (data2[key] > data1[key])
+                return -1;
+            return 0;
         });
     }
 
@@ -23,7 +25,11 @@ export class Utilities {
      */
     public static sortByAscending(list: any, key: any) {
         return list.sort((data1: any, data2: any) => {
-            return data1[key] - data2[key];
+            if (data2[key] < data1[key])
+                return 1;
+            if (data1[key] > data2[key])
+                return -1;
+            return 0;
         });
     }
 
