@@ -26,7 +26,7 @@ GET: http://localhost:3000/share-data?currency=LTC&date= - to get the data for a
 - npm install
 - npm run build
 - npm start
-Enter data and get the details after clicking Fetch button.
+- Enter data and get the details after clicking Fetch button.
 
 ## Areas of Improvements
 - e2e's can be written to enhance the productivity of the application.
