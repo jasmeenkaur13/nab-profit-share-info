@@ -9,6 +9,7 @@ buying a currency at a given price and selling it later on the same day.
 ## Design and Implementation
 - Used REST to implement the API's.
 - Used Typescript with Express to implement the api and front end
+- Used Single Responsibility Principle to implement classes.
 
 ## Steps to Run
 - Navigate to app-config.ts of nab-profite-share-info-api/src in the Project and Update the connection string for Successful mongoDB connection.
@@ -27,3 +28,4 @@ GET: http://localhost:3000/share-data?currency=LTC&date= - to get the data for a
 - Implement Logging.
 - Enhance the look and feel of front end.
 - Implement validations for front end and back end.
+- Provide more enhancement to the structure using DI from @Injectable at API side.
