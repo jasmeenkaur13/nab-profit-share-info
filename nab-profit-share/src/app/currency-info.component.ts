@@ -8,10 +8,10 @@ import { CurrencyDataAnalysis } from '../models/currency-data-analysis.model';
  */
 @Component({
   selector: 'currency-information',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './currency-info.component.html',
+  styleUrls: ['./currency-info.component.css']
 })
-export class AppComponent {
+export class CurrencyInfoComponent {
   public currencyDataAnaysisList: Observable<CurrencyDataAnalysis[]> ;
   public currency: string ='';
   public date: string ='';

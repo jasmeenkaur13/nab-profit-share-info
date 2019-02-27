@@ -1,6 +1,6 @@
 import { ShareDataInfoDb } from './share-data-info.db';
 
-describe('Facility Service DB Unit Tests', () => {
+describe('Share Info DB Unit Tests', () => {
     beforeEach((done) => {
         done();
     });

@@ -2,10 +2,8 @@ import { ShareInfoDataController } from './share-data-info.controller';
 import { ShareDataInfoDb } from './share-data-info.db';
 import { ShareData } from '../entities/share-data.entity';
 import { Quotes } from '../entities/quotes.entity';
-// import { CurrencyDataAnalysis } from '../entities/currency-data-analysis.entity';
 
 describe('Share data info Controller Unit Test', () => {
-    let FacilityController: ShareInfoDataController;
     let req: any;
     let res: any;
 
@@ -41,7 +39,6 @@ describe('Share data info Controller Unit Test', () => {
     });
 
     it('getCurrencyDataAnlysis to respond with 200 and returns data in correct format', (done) => {
-        // facilityDB.getDataWithRequestParameters().and.returnValue([]);
         const currencyData: ShareData = new ShareData();
         const quotes: Quotes[] = [];
         let quote : Quotes = new Quotes();
@@ -71,8 +68,7 @@ describe('Share data info Controller Unit Test', () => {
             });
     });
 
-    it('getFacilityContactDetails to respond with 400, and is Success should be false, when shop initial is not in correct format', (done) => {
-        // facilityDB.getDataWithRequestParameters().and.returnValue([]);
+    it('getCurrencyDataAnlysis to respond with 200 and returns data in correct format when only currency passed', (done) => {
         const currencyData: ShareData = new ShareData();
         const quotes: Quotes[] = [];
         let quote : Quotes = new Quotes();
@@ -101,8 +97,7 @@ describe('Share data info Controller Unit Test', () => {
             });
     });
 
-    it('getFacilityContactDetails to respond with 400, and is Success should be false, when shop initial is not in correct format', (done) => {
-        // facilityDB.getDataWithRequestParameters().and.returnValue([]);
+    it('getCurrencyDataAnlysis to respond with 200 and returns data in correct format when only date passed', (done) => {
         const currencyData: ShareData = new ShareData();
         const quotes: Quotes[] = [];
         let quote : Quotes = new Quotes();
@@ -139,9 +134,8 @@ describe('Share data info Controller Unit Test', () => {
             });
     });
 
-    it('getFacilityContactDetails to respond with 400, and is Success should be false, when shop initial is not in correct format', (done) => {
-        // facilityDB.getDataWithRequestParameters().and.returnValue([]);
-        spyOn(ShareDataInfoDb, 'getDataWithRequestParameters').and.returnValue(()=>{throw new Error('hi')});
+    it('getCurrencyDataAnlysis to respond with 500 when error occurs', (done) => {
+        spyOn(ShareDataInfoDb, 'getDataWithRequestParameters').and.returnValue(()=>{throw new Error('dummyError')});
         req.query.date = '20180705';
 
         ShareInfoDataController.getCurrencyDataAnlysis(req, res)
